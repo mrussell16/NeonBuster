@@ -5,19 +5,26 @@ class_name Ball
 signal killed_by_killbox(ball)
 
 
-export var movement_speed: float = 400
-export var spin_distance: float = 20
-export var paddle_width: float = 100
+export var movement_speed: int = 400
+export var spin_distance: int = 20
+export var paddle_width: int = 128
 
 
 var velocity: Vector2 = Vector2.ZERO
 var on_paddle: bool = true
-var index_on_player: int = 0
 var half_paddle_width: int = 0
 var spin_start: int = 0
 
 
 func _ready() -> void:
+    half_paddle_width = paddle_width / 2
+    spin_start = half_paddle_width - spin_distance
+
+
+func set_params(ball_speed: int, paddle_width: int, spin_distance: int) -> void:
+    movement_speed = ball_speed
+    paddle_width = paddle_width
+    spin_distance = spin_distance
     half_paddle_width = paddle_width / 2
     spin_start = half_paddle_width - spin_distance
 
