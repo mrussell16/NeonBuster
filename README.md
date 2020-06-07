@@ -3,7 +3,6 @@
 
 ## TODO
 
-* Add main menu
 * Handle win condition
     * Load next level if available
 * Handle lose condition

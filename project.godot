@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="NeonBuster"
-run/main_scene="res://levels/Level1.tscn"
+run/main_scene="res://ui/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
