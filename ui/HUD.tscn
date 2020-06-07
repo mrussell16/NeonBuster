@@ -1,0 +1,106 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/HUD.gd" type="Script" id=1]
+[ext_resource path="res://ui/UI.theme" type="Theme" id=2]
+[ext_resource path="res://ui/title_font.tres" type="DynamicFont" id=3]
+
+[node name="HUD" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = -32.0
+margin_right = 232.0
+margin_bottom = -7.0
+text = "Score: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lives" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 792.0
+margin_top = -32.0
+margin_right = 992.0
+margin_bottom = -16.0
+custom_colors/font_color = Color( 0, 0.666667, 0.831373, 1 )
+text = "Lives: 3"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseOverlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0.25098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="PauseOverlay"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -128.0
+margin_top = 64.0
+margin_right = 128.0
+margin_bottom = 384.0
+custom_constants/separation = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="PauseOverlay/Menu"]
+margin_right = 256.0
+margin_bottom = 51.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Paused"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Retry" type="Button" parent="PauseOverlay/Menu"]
+margin_top = 67.0
+margin_right = 256.0
+margin_bottom = 118.0
+size_flags_vertical = 3
+text = "Retry"
+
+[node name="Continue" type="Button" parent="PauseOverlay/Menu"]
+margin_top = 134.0
+margin_right = 256.0
+margin_bottom = 185.0
+size_flags_vertical = 3
+text = "Continue"
+
+[node name="MainMenu" type="Button" parent="PauseOverlay/Menu"]
+margin_top = 201.0
+margin_right = 256.0
+margin_bottom = 252.0
+size_flags_vertical = 3
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="PauseOverlay/Menu"]
+margin_top = 268.0
+margin_right = 256.0
+margin_bottom = 320.0
+size_flags_vertical = 3
+text = "Quit"
+[connection signal="pressed" from="PauseOverlay/Menu/Retry" to="." method="_on_Retry_pressed"]
+[connection signal="pressed" from="PauseOverlay/Menu/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="PauseOverlay/Menu/Quit" to="." method="_on_Quit_pressed"]

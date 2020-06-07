@@ -1,15 +1,15 @@
 extends Node2D
 
-export var paddle_speed: int = 500
-export var ball_speed: int = 400
-export var level_size: int = 1024
-export var wall_width: int = 16
-export var paddle_width: int = 128
-export var spin_distance: int = 32
+export var paddle_speed :=  500
+export var ball_speed :=  400
+export var level_size :=  1024
+export var wall_width :=  16
+export var paddle_width :=  128
+export var spin_distance :=  32
 
 
 var balls = []
-var paddle_limit: int = 128
+var paddle_limit :=  128
 
 
 onready var paddle = $Paddle
@@ -48,6 +48,7 @@ func set_ball_settings():
 
 func _on_Ball_killed_by_killbox(ball: Ball) -> void:
     if len(balls) == 1:
+        GameManager.player_died()
         reset()
     else:
         ball.queue_free()

@@ -3,10 +3,11 @@
 
 ## TODO
 
+* Add main menu
 * Handle win condition
-* Add lives
-* Add menu
-* Add score
+    * Load next level if available
+* Handle lose condition
+    * Load first level
 * SFX
     * Ball Collision
     * Paddle Collision

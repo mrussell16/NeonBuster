@@ -1,15 +1,20 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/Walls.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actors/Block/Block.tscn" type="PackedScene" id=4]
 
 [node name="Level1" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 3 )]
+
 [node name="Walls" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 512, 576 )
+position = Vector2( 512, 544 )
 
 [node name="Blocks" type="Node2D" parent="."]
 
