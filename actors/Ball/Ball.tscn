@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://actors/Ball/Ball.png" type="Texture" id=1]
 [ext_resource path="res://actors/Ball/Ball.gd" type="Script" id=2]
 [ext_resource path="res://sfx/bounce.wav" type="AudioStream" id=3]
-[ext_resource path="res://sfx/paddle.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 7.07107
@@ -21,8 +20,4 @@ shape = SubResource( 1 )
 
 [node name="BounceSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -24.0
-
-[node name="PaddleSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-volume_db = -20.0
+volume_db = -27.0

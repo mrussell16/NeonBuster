@@ -18,7 +18,6 @@ var spin_start := 0
 
 
 onready var bounce_player: AudioStreamPlayer = $BounceSFX
-onready var paddle_player: AudioStreamPlayer = $PaddleSFX
 
 
 func _ready() -> void:
@@ -72,7 +71,6 @@ func _physics_process(delta: float) -> void:
     if collision:
         bounce_player.play()
         if collision.collider.name == 'Paddle':
-            paddle_player.play()
             _handle_paddle_collision(collision)
         else:
             if abs(collision.normal.x) > 0.1:

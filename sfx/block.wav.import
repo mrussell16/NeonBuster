@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/paddle.wav-742e4f02ed2b832f295bf6c319616eb3.sample"
+path="res://.import/block.wav-8f65332d5a6989beb72354290006212c.sample"
 
 [deps]
 
-source_file="res://sfx/paddle.wav"
-dest_files=[ "res://.import/paddle.wav-742e4f02ed2b832f295bf6c319616eb3.sample" ]
+source_file="res://sfx/block.wav"
+dest_files=[ "res://.import/block.wav-8f65332d5a6989beb72354290006212c.sample" ]
 
 [params]
 

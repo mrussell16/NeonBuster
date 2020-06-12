@@ -1,10 +1,7 @@
 # NeonBuster
 
-
 ## TODO
 
-* SFX
-    * Block break
 * GFX
     * Particles on collision
     * Lights on collision
