@@ -63,7 +63,7 @@ __meta__ = {
 
 [node name="Title" type="Label" parent="PauseOverlay/Menu"]
 margin_right = 256.0
-margin_bottom = 51.0
+margin_bottom = 33.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 3 )
 text = "Paused"
@@ -74,29 +74,50 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Retry" type="Button" parent="PauseOverlay/Menu"]
-margin_top = 67.0
+[node name="Level" type="Label" parent="PauseOverlay/Menu"]
+margin_top = 49.0
 margin_right = 256.0
-margin_bottom = 118.0
+margin_bottom = 63.0
+text = "Level: 0"
+align = 1
+
+[node name="Score" type="Label" parent="PauseOverlay/Menu"]
+margin_top = 79.0
+margin_right = 256.0
+margin_bottom = 93.0
+text = "Your Score: 0"
+align = 1
+
+[node name="Lives" type="Label" parent="PauseOverlay/Menu"]
+margin_top = 109.0
+margin_right = 256.0
+margin_bottom = 123.0
+text = "Lives Remaining: 0"
+align = 1
+
+[node name="Retry" type="Button" parent="PauseOverlay/Menu"]
+margin_top = 139.0
+margin_right = 256.0
+margin_bottom = 172.0
 size_flags_vertical = 3
 text = "Retry"
 
 [node name="Continue" type="Button" parent="PauseOverlay/Menu"]
-margin_top = 134.0
+margin_top = 188.0
 margin_right = 256.0
-margin_bottom = 185.0
+margin_bottom = 221.0
 size_flags_vertical = 3
 text = "Continue"
 
 [node name="MainMenu" type="Button" parent="PauseOverlay/Menu"]
-margin_top = 201.0
+margin_top = 237.0
 margin_right = 256.0
-margin_bottom = 252.0
+margin_bottom = 270.0
 size_flags_vertical = 3
 text = "Main Menu"
 
 [node name="Quit" type="Button" parent="PauseOverlay/Menu"]
-margin_top = 268.0
+margin_top = 286.0
 margin_right = 256.0
 margin_bottom = 320.0
 size_flags_vertical = 3
