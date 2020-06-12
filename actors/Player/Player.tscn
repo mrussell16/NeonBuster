@@ -11,4 +11,7 @@ script = ExtResource( 3 )
 
 [node name="Ball" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, -16 )
+
+[node name="Timer" type="Timer" parent="."]
 [connection signal="killed_by_killbox" from="Ball" to="." method="_on_Ball_killed_by_killbox"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

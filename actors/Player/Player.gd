@@ -13,6 +13,7 @@ var paddle_limit :=  128
 
 
 onready var paddle = $Paddle
+onready var timer = $Timer
 
 
 func _ready() -> void:
@@ -32,6 +33,7 @@ func _process(delta: float) -> void:
     if Input.is_action_just_pressed("ui_accept"):
         for ball in balls:
             ball.start_from_paddle(Vector2(-1, -1))
+        timer.start()
     else:
         for ball in balls:
             ball.move_on_paddle(new_paddle_position - old_paddle_position)
@@ -39,6 +41,7 @@ func _process(delta: float) -> void:
 
 func reset():
     balls[0].reset(paddle.position)
+    timer.stop()
 
 
 func set_ball_settings():
@@ -52,3 +55,10 @@ func _on_Ball_killed_by_killbox(ball: Ball) -> void:
         reset()
     else:
         ball.queue_free()
+
+
+func _on_Timer_timeout() -> void:
+    GameManager.score_decrement()
+    ball_speed += 1
+    set_ball_settings()
+    timer.start()

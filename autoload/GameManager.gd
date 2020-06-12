@@ -33,6 +33,11 @@ func destroy_block(_score: int) -> void:
     emit_signal("score_updated")
 
 
+func score_decrement() -> void:
+    score -= 10
+    emit_signal("score_updated")
+
+
 func player_died() -> void:
     lives -= 1
     emit_signal("lives_updated")
