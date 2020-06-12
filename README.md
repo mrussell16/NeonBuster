@@ -4,8 +4,6 @@
 ## TODO
 
 * SFX
-    * Ball Collision
-    * Paddle Collision
     * Block break
 * GFX
     * Particles on collision
