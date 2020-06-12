@@ -1,11 +1,37 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://actors/Block/Block.png" type="Texture" id=1]
 [ext_resource path="res://actors/Block/Block.gd" type="Script" id=2]
 [ext_resource path="res://sfx/block.wav" type="AudioStream" id=3]
+[ext_resource path="res://actors/Block/BlockShard.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 16 )
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.272727, 0.717703, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.784314, 1, 1, 1, 0.501961, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+lifetime_randomness = 0.4
+emission_shape = 2
+emission_box_extents = Vector3( 48, 16, 1 )
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 720.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 150.0
+radial_accel_random = 0.3
+angle = 360.0
+angle_random = 1.0
+scale = 0.6
+color_ramp = SubResource( 3 )
 
 [node name="Block" type="KinematicBody2D"]
 collision_layer = 8
@@ -21,4 +47,12 @@ shape = SubResource( 1 )
 [node name="BreakSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -36.0
+
+[node name="Particles" type="Particles2D" parent="."]
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 4 )
+texture = ExtResource( 4 )
 [connection signal="finished" from="BreakSFX" to="." method="_on_BreakSFX_finished"]

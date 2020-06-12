@@ -7,6 +7,7 @@ export var score := 100
 onready var break_player: AudioStreamPlayer = $BreakSFX
 onready var sprite: Sprite = $Sprite
 onready var collision_shape: CollisionShape2D = $CollisionShape2D
+onready var particles: Particles2D = $Particles
 
 
 func _ready() -> void:
@@ -17,6 +18,7 @@ func _physics_process(delta: float) -> void:
     var collision = move_and_collide(Vector2.ZERO)
     if collision:
         GameManager.destroy_block(score)
+        particles.emitting = true
         sprite.visible = false
         collision_shape.disabled = true
         break_player.play()
