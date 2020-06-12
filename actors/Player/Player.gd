@@ -2,6 +2,7 @@ extends Node2D
 
 export var paddle_speed :=  500
 export var ball_speed :=  400
+export var initial_ball_speed :=  400
 export var level_size :=  1024
 export var wall_width :=  16
 export var paddle_width :=  128
@@ -41,6 +42,7 @@ func _process(delta: float) -> void:
 
 func reset():
     balls[0].reset(paddle.position)
+    ball_speed = initial_ball_speed
     timer.stop()
 
 

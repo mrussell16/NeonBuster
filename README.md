@@ -3,10 +3,6 @@
 
 ## TODO
 
-* Handle win condition
-    * Load next level if available
-* Handle lose condition
-    * Load first level
 * SFX
     * Ball Collision
     * Paddle Collision
@@ -14,6 +10,8 @@
 * GFX
     * Particles on collision
     * Lights on collision
+    * Text effects
+    * Better buttons in menu
 * Block types
     * Multi-hit
     * Pass through

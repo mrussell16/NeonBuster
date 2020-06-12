@@ -51,7 +51,10 @@ func _on_score_updated() -> void:
     score_label.text = SCORE_TEMPLATE.format({"score": GameManager.score})
 
     if GameManager.blocks == 0:
-        set_paused(true, WIN_MESSAGE)
+        if GameManager.level < GameManager.total_levels:
+            GameManager.load_next_level()
+        else:
+            set_paused(true, WIN_MESSAGE)
 
 
 func _on_lives_updated() -> void:
@@ -62,9 +65,8 @@ func _on_lives_updated() -> void:
 
 
 func _on_Retry_pressed() -> void:
-    GameManager.score = 0
+    GameManager.retry()
     scene_tree.paused = false
-    scene_tree.reload_current_scene()
 
 
 func _on_Continue_pressed() -> void:
