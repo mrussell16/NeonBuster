@@ -1,14 +1,39 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://ui/HUD.gd" type="Script" id=1]
-[ext_resource path="res://ui/UI.theme" type="Theme" id=2]
-[ext_resource path="res://ui/title_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://ui/text/Paused.png" type="Texture" id=3]
+[ext_resource path="res://ui/buttons/QuitButton/QuitButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui/buttons/RetryButton/RetryButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/buttons/ContinueButton/ContinueButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ui/buttons/MainMenuButton/MainMenuButton.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Theme" id=1]
+Button/colors/font_color = Color( 0, 0.666667, 0.831373, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.941176, 0.941176, 0.941176, 1 )
+Button/colors/font_color_pressed = Color( 0.74902, 0.815686, 0.831373, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+Label/colors/font_color = Color( 0, 0.666667, 0.831373, 1 )
+Label/colors/font_color_shadow = Color( 0, 0.666667, 0.831373, 0 )
+Label/colors/font_outline_modulate = Color( 0, 0.666667, 0.831373, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 0
+Label/fonts/font = null
+Label/styles/normal = null
 
 [node name="HUD" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 2 )
+theme = SubResource( 1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -44,7 +69,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.501961 )
+color = Color( 0, 0, 0, 0.643137 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -52,76 +77,62 @@ __meta__ = {
 [node name="Menu" type="VBoxContainer" parent="PauseOverlay"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -128.0
-margin_top = 64.0
-margin_right = 128.0
-margin_bottom = 384.0
+margin_left = -256.0
+margin_top = 32.0
+margin_right = 256.0
+margin_bottom = 570.0
 custom_constants/separation = 16
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="Label" parent="PauseOverlay/Menu"]
-margin_right = 256.0
-margin_bottom = 33.0
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 3 )
-text = "Paused"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Title" type="TextureRect" parent="PauseOverlay/Menu"]
+margin_right = 512.0
+margin_bottom = 128.0
+texture = ExtResource( 3 )
 
 [node name="Level" type="Label" parent="PauseOverlay/Menu"]
-margin_top = 49.0
-margin_right = 256.0
-margin_bottom = 63.0
+margin_top = 144.0
+margin_right = 512.0
+margin_bottom = 158.0
 text = "Level: 0"
 align = 1
 
 [node name="Score" type="Label" parent="PauseOverlay/Menu"]
-margin_top = 79.0
-margin_right = 256.0
-margin_bottom = 93.0
+margin_top = 174.0
+margin_right = 512.0
+margin_bottom = 188.0
 text = "Your Score: 0"
 align = 1
 
 [node name="Lives" type="Label" parent="PauseOverlay/Menu"]
-margin_top = 109.0
-margin_right = 256.0
-margin_bottom = 123.0
+margin_top = 204.0
+margin_right = 512.0
+margin_bottom = 218.0
 text = "Lives Remaining: 0"
 align = 1
 
-[node name="Retry" type="Button" parent="PauseOverlay/Menu"]
-margin_top = 139.0
-margin_right = 256.0
-margin_bottom = 172.0
-size_flags_vertical = 3
-text = "Retry"
+[node name="RetryButton" parent="PauseOverlay/Menu" instance=ExtResource( 5 )]
+margin_left = 128.0
+margin_top = 234.0
+margin_right = 384.0
+margin_bottom = 298.0
 
-[node name="Continue" type="Button" parent="PauseOverlay/Menu"]
-margin_top = 188.0
-margin_right = 256.0
-margin_bottom = 221.0
-size_flags_vertical = 3
-text = "Continue"
+[node name="ContinueButton" parent="PauseOverlay/Menu" instance=ExtResource( 6 )]
+margin_left = 128.0
+margin_top = 314.0
+margin_right = 384.0
+margin_bottom = 378.0
 
-[node name="MainMenu" type="Button" parent="PauseOverlay/Menu"]
-margin_top = 237.0
-margin_right = 256.0
-margin_bottom = 270.0
-size_flags_vertical = 3
-text = "Main Menu"
+[node name="MainMenuButton" parent="PauseOverlay/Menu" instance=ExtResource( 7 )]
+margin_left = 128.0
+margin_top = 394.0
+margin_right = 384.0
+margin_bottom = 458.0
 
-[node name="Quit" type="Button" parent="PauseOverlay/Menu"]
-margin_top = 286.0
-margin_right = 256.0
-margin_bottom = 320.0
-size_flags_vertical = 3
-text = "Quit"
-[connection signal="pressed" from="PauseOverlay/Menu/Retry" to="." method="_on_Retry_pressed"]
-[connection signal="pressed" from="PauseOverlay/Menu/Continue" to="." method="_on_Continue_pressed"]
-[connection signal="pressed" from="PauseOverlay/Menu/Quit" to="." method="_on_Quit_pressed"]
+[node name="QuitButton" parent="PauseOverlay/Menu" instance=ExtResource( 4 )]
+margin_left = 128.0
+margin_top = 474.0
+margin_right = 384.0
+margin_bottom = 538.0
+[connection signal="pressed" from="PauseOverlay/Menu/ContinueButton" to="." method="_on_ContinueButton_pressed"]

@@ -51,6 +51,10 @@ func player_died() -> void:
     emit_signal("lives_updated")
 
 
+func load_main_menu() -> void:
+    scene_tree.change_scene("res://ui/MainMenu.tscn")
+
+
 func load_next_level() -> void:
     level += 1
     if level <= total_levels:
@@ -59,4 +63,5 @@ func load_next_level() -> void:
 
 func retry() -> void:
     reset()
+    scene_tree.paused = false
     scene_tree.change_scene("res://levels/Level{level}.tscn".format({"level": level}))

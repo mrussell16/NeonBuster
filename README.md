@@ -2,10 +2,11 @@
 
 ## TODO
 
+* SFX
+    * Death sound
+    * Music
 * GFX
     * Lights on collision
-    * Text effects
-    * Better buttons in menu
 * Block types
     * Pass through
 * Powerups/Debuffs
