@@ -3,6 +3,7 @@ extends Node
 
 signal score_updated
 signal lives_updated
+signal powerup_collected(powerup)
 
 
 export var lives := 3 setget set_lives
@@ -49,6 +50,10 @@ func player_died() -> void:
     if lives <= 0:
         level = 1
     emit_signal("lives_updated")
+
+
+func enable_powerup(powerup: int) -> void:
+    emit_signal("powerup_collected", powerup)
 
 
 func load_main_menu() -> void:

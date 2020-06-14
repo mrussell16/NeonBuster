@@ -8,7 +8,6 @@
     * Pass through
 * Powerups/Debuffs
     * Multi-ball
-    * Fast ball
     * Slow paddle
     * Sticky paddle
     * Extra life

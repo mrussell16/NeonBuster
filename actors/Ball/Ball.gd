@@ -27,6 +27,7 @@ func _ready() -> void:
 
 func set_params(ball_speed: int, paddle_width: int, spin_distance: int) -> void:
     movement_speed = ball_speed
+    velocity = velocity.normalized() * movement_speed
     paddle_width = paddle_width
     spin_distance = spin_distance
     half_paddle_width = paddle_width / 2

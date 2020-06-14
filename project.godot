@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Block2",
 "language": "GDScript",
 "path": "res://actors/Block/Block2.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Powerup",
+"language": "GDScript",
+"path": "res://actors/Powerups/Powerup.gd"
 } ]
 _global_script_class_icons={
 "Ball": "",
 "Block": "",
-"Block2": ""
+"Block2": "",
+"Powerup": ""
 }
 
 [application]
@@ -73,6 +79,7 @@ pause={
 2d_physics/layer_2="Ball"
 2d_physics/layer_3="Environment"
 2d_physics/layer_4="Blocks"
+2d_physics/layer_5="Powerups"
 
 [rendering]
 

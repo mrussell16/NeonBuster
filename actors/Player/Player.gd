@@ -21,6 +21,7 @@ onready var death_sfx = $DeathSFX
 func _ready() -> void:
     balls.append($Ball)
     set_ball_settings()
+    GameManager.connect("powerup_collected", self, "_on_powerup_collected")
 
     paddle_limit = (level_size - wall_width - wall_width - paddle_width) / 2
 
@@ -44,6 +45,7 @@ func _process(delta: float) -> void:
 func reset():
     balls[0].reset(paddle.position)
     ball_speed = initial_ball_speed
+    set_ball_settings()
     timer.stop()
 
 
@@ -63,6 +65,13 @@ func _on_Ball_killed_by_killbox(ball: Ball) -> void:
 
 func _on_Timer_timeout() -> void:
     GameManager.score_decrement()
-    ball_speed += 1
+    ball_speed += 2
     set_ball_settings()
     timer.start()
+
+
+func _on_powerup_collected(powerup: int) -> void:
+    match powerup:
+        Powerup.PowerupTypes.FAST_BALL:
+            ball_speed += 200
+            set_ball_settings()

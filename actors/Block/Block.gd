@@ -3,6 +3,7 @@ class_name Block
 
 
 export var score := 100
+export(PackedScene) var powerup
 
 
 onready var break_player: AudioStreamPlayer = $BreakSFX
@@ -31,9 +32,17 @@ func _on_collision() -> void:
 
 func _on_destroy() -> void:
     _should_destroy = true
+    create_powerup()
     GameManager.destroy_block(score)
     sprite.visible = false
     collision_shape.disabled = true
+
+
+func create_powerup() -> void:
+    if powerup:
+        var powerup_instance = powerup.instance()
+        powerup_instance.global_position = global_position
+        get_parent().add_child(powerup_instance)
 
 
 func _play_collision_fx() -> void:
