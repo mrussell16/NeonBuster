@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://actors/Ball/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/Paddle/Paddle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/Player/Player.gd" type="Script" id=3]
+[ext_resource path="res://sfx/death.wav" type="AudioStream" id=4]
 
 [node name="Player" type="Node2D"]
 script = ExtResource( 3 )
@@ -13,5 +14,9 @@ script = ExtResource( 3 )
 position = Vector2( 0, -16 )
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="DeathSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -12.0
 [connection signal="killed_by_killbox" from="Ball" to="." method="_on_Ball_killed_by_killbox"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

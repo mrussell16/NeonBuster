@@ -3,10 +3,7 @@
 ## TODO
 
 * SFX
-    * Death sound
     * Music
-* GFX
-    * Lights on collision
 * Block types
     * Pass through
 * Powerups/Debuffs

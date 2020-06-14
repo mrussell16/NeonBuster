@@ -15,6 +15,7 @@ var paddle_limit :=  128
 
 onready var paddle = $Paddle
 onready var timer = $Timer
+onready var death_sfx = $DeathSFX
 
 
 func _ready() -> void:
@@ -54,6 +55,7 @@ func set_ball_settings():
 func _on_Ball_killed_by_killbox(ball: Ball) -> void:
     if len(balls) == 1:
         GameManager.player_died()
+        death_sfx.play()
         reset()
     else:
         ball.queue_free()
