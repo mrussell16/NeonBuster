@@ -11,6 +11,8 @@ export var score := 0 setget set_score
 export var blocks := 0
 export var level := 1
 
+var sticky_paddle := false
+
 
 onready var scene_tree := get_tree()
 
@@ -45,6 +47,7 @@ func score_decrement() -> void:
 
 
 func player_died() -> void:
+    sticky_paddle = false
     lives -= 1
     if lives <= 0:
         level = 1
@@ -56,6 +59,9 @@ func enable_powerup(powerup: int) -> void:
         Powerup.PowerupTypes.EXTRA_LIFE:
             lives += 1
             emit_signal("lives_updated")
+        Powerup.PowerupTypes.STICKY_PADDLE:
+            print("enabled sticky")
+            sticky_paddle = true
         _:
             emit_signal("powerup_collected", powerup)
 

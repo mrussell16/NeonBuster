@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 
     if Input.is_action_just_pressed("ui_accept"):
         for ball in balls:
-            ball.start_from_paddle(Vector2(-1, -1))
+            ball.start_from_paddle(paddle.global_position)
         timer.start()
     else:
         for ball in balls:
@@ -95,5 +95,5 @@ func _create_ball(position: Vector2, velocity: Vector2 = Vector2.ZERO, on_paddle
     new_ball.set_params(ball_speed, paddle_width, spin_distance)
     var _connected = new_ball.connect("killed_by_killbox", self, "_on_Ball_killed_by_killbox")
     if not on_paddle:
-        new_ball.start_from_paddle(velocity.normalized())
+        new_ball.start_from_paddle(paddle.global_position)
     balls.append(new_ball)

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://actors/Powerups/Powerup.gd" type="Script" id=1]
+[ext_resource path="res://sfx/stickypaddle.wav" type="AudioStream" id=2]
+[ext_resource path="res://actors/Powerups/StickyPaddle.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 16 )
+
+[node name="StickyPaddle" type="KinematicBody2D"]
+collision_layer = 16
+script = ExtResource( 1 )
+powerup = 4
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="CollectSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -8.0
+[connection signal="finished" from="CollectSFX" to="." method="_on_CollectSFX_finished"]

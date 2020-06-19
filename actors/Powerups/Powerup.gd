@@ -7,7 +7,6 @@ enum PowerupTypes {
     FAST_BALL,
     EXTRA_LIFE,
     TRIPLE_BALL,
-    SLOW_PADDLE,
     STICKY_PADDLE
 }
 
