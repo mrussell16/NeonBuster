@@ -10,7 +10,6 @@ export var lives := 3 setget set_lives
 export var score := 0 setget set_score
 export var blocks := 0
 export var level := 1
-export var total_levels := 3
 
 
 onready var scene_tree := get_tree()
@@ -65,10 +64,10 @@ func load_main_menu() -> void:
     var _success = scene_tree.change_scene("res://ui/MainMenu.tscn")
 
 
-func load_next_level() -> void:
+func load_next_level() -> bool:
     level += 1
-    if level <= total_levels:
-        var _success = scene_tree.change_scene("res://levels/Level{level}.tscn".format({"level": level}))
+    var success = scene_tree.change_scene("res://levels/Level{level}.tscn".format({"level": level}))
+    return success != ERR_CANT_OPEN
 
 
 func retry() -> void:

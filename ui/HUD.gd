@@ -79,9 +79,7 @@ func _on_score_updated() -> void:
     pause_score_label.text = PAUSE_SCORE_TEMPLATE.format({"score": GameManager.score})
 
     if GameManager.blocks == 0:
-        if GameManager.level < GameManager.total_levels:
-            GameManager.load_next_level()
-        else:
+        if not GameManager.load_next_level():
             set_paused(true, HUDState.STATE_WIN)
 
 
