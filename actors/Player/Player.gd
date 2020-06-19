@@ -8,6 +8,7 @@ export var wall_width :=  16
 export var paddle_width :=  128
 export var spin_distance :=  32
 
+export(PackedScene) var ball_scene
 
 var balls = []
 var paddle_limit :=  128
@@ -19,8 +20,7 @@ onready var death_sfx = $DeathSFX
 
 
 func _ready() -> void:
-    balls.append($Ball)
-    set_ball_settings()
+    _create_ball(global_position + Vector2(0, -16))
     var _connected = GameManager.connect("powerup_collected", self, "_on_powerup_collected")
 
     paddle_limit = (level_size - wall_width - wall_width - paddle_width) / 2
@@ -60,6 +60,7 @@ func _on_Ball_killed_by_killbox(ball: Ball) -> void:
         death_sfx.play()
         reset()
     else:
+        balls.erase(ball)
         ball.queue_free()
 
 
@@ -75,3 +76,24 @@ func _on_powerup_collected(powerup: int) -> void:
         Powerup.PowerupTypes.FAST_BALL:
             ball_speed += 200
             set_ball_settings()
+        Powerup.PowerupTypes.TRIPLE_BALL:
+            _triple_balls()
+
+
+func _triple_balls() -> void:
+    var balls_to_clone = len(balls)
+    for index in range(balls_to_clone):
+        var ball = balls[index]
+        _create_ball(ball.global_position, Vector2(ball.velocity.x * 2, ball.velocity.y), false)
+        _create_ball(ball.global_position, Vector2(ball.velocity.x, ball.velocity.y * 2), false)
+
+
+func _create_ball(position: Vector2, velocity: Vector2 = Vector2.ZERO, on_paddle: bool = true) -> void:
+    var new_ball = ball_scene.instance()
+    add_child(new_ball)
+    new_ball.global_position = position
+    new_ball.set_params(ball_speed, paddle_width, spin_distance)
+    var _connected = new_ball.connect("killed_by_killbox", self, "_on_Ball_killed_by_killbox")
+    if not on_paddle:
+        new_ball.start_from_paddle(velocity.normalized())
+    balls.append(new_ball)

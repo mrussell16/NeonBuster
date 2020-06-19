@@ -5,7 +5,10 @@ class_name Powerup
 enum PowerupTypes {
     NONE,
     FAST_BALL,
-    EXTRA_LIFE
+    EXTRA_LIFE,
+    TRIPLE_BALL,
+    SLOW_PADDLE,
+    STICKY_PADDLE
 }
 
 

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/tripleball.wav-8ea94811bac5bc1f319008d3a387dad2.sample"
+
+[deps]
+
+source_file="res://sfx/tripleball.wav"
+dest_files=[ "res://.import/tripleball.wav-8ea94811bac5bc1f319008d3a387dad2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

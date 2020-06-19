@@ -5,7 +5,6 @@
 * SFX
     * Music
 * Powerups/Debuffs
-    * Multi-ball
     * Slow paddle
     * Sticky paddle
 * More Levels
