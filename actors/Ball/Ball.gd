@@ -52,6 +52,7 @@ func reset(paddle_position: Vector2):
     position = paddle_position + Vector2(0, -16)
     on_paddle = true
     velocity = Vector2.ZERO
+    last_velocity_x = -1.0
 
 
 func _handle_paddle_collision(collision: KinematicCollision2D):
