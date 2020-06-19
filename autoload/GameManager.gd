@@ -10,7 +10,7 @@ export var lives := 3 setget set_lives
 export var score := 0 setget set_score
 export var blocks := 0
 export var level := 1
-export var total_levels := 2
+export var total_levels := 3
 
 
 onready var scene_tree := get_tree()
@@ -53,7 +53,12 @@ func player_died() -> void:
 
 
 func enable_powerup(powerup: int) -> void:
-    emit_signal("powerup_collected", powerup)
+    match powerup:
+        Powerup.PowerupTypes.EXTRA_LIFE:
+            lives += 1
+            emit_signal("lives_updated")
+        _:
+            emit_signal("powerup_collected", powerup)
 
 
 func load_main_menu() -> void:

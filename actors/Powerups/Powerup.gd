@@ -4,12 +4,13 @@ class_name Powerup
 
 enum PowerupTypes {
     NONE,
-    FAST_BALL
+    FAST_BALL,
+    EXTRA_LIFE
 }
 
 
-var fall_speed := 100
-var powerup: int = PowerupTypes.FAST_BALL
+export var fall_speed := 100
+export(PowerupTypes) var powerup: int = PowerupTypes.FAST_BALL
 
 onready var sprite: Sprite = $Sprite
 onready var collision_shape: CollisionShape2D = $CollisionShape2D
