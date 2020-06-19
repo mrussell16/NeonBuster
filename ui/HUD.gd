@@ -35,8 +35,8 @@ onready var continue_button: Node = $PauseOverlay/Menu/ContinueButton
 
 
 func _ready() -> void:
-    GameManager.connect("score_updated", self, "_on_score_updated")
-    GameManager.connect("lives_updated", self, "_on_lives_updated")
+    var _connect = GameManager.connect("score_updated", self, "_on_score_updated")
+    var _connect2 = GameManager.connect("lives_updated", self, "_on_lives_updated")
     pause_level_label.text = PAUSE_LEVEL_TEMPLATE.format({"level": GameManager.level})
     score_label.text = SCORE_TEMPLATE.format({"score": GameManager.score})
     pause_score_label.text = PAUSE_SCORE_TEMPLATE.format({"score": GameManager.score})

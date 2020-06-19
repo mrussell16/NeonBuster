@@ -3,7 +3,6 @@ class_name Ball
 
 
 signal killed_by_killbox(ball)
-signal collided_with_paddle()
 
 
 export var movement_speed := 400
@@ -25,11 +24,11 @@ func _ready() -> void:
     spin_start = half_paddle_width - spin_distance
 
 
-func set_params(ball_speed: int, paddle_width: int, spin_distance: int) -> void:
+func set_params(ball_speed: int, paddle_size: int, spin_size: int) -> void:
     movement_speed = ball_speed
     velocity = velocity.normalized() * movement_speed
-    paddle_width = paddle_width
-    spin_distance = spin_distance
+    paddle_width = paddle_size
+    spin_distance = spin_size
     half_paddle_width = paddle_width / 2
     spin_start = half_paddle_width - spin_distance
 

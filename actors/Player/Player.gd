@@ -21,7 +21,7 @@ onready var death_sfx = $DeathSFX
 func _ready() -> void:
     balls.append($Ball)
     set_ball_settings()
-    GameManager.connect("powerup_collected", self, "_on_powerup_collected")
+    var _connected = GameManager.connect("powerup_collected", self, "_on_powerup_collected")
 
     paddle_limit = (level_size - wall_width - wall_width - paddle_width) / 2
 

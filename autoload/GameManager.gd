@@ -16,11 +16,11 @@ export var total_levels := 2
 onready var scene_tree := get_tree()
 
 
-func set_score(value: int) -> void:
+func set_score(_value: int) -> void:
     pass
 
 
-func set_lives(value: int) -> void:
+func set_lives(_value: int) -> void:
     pass
 
 
@@ -57,16 +57,16 @@ func enable_powerup(powerup: int) -> void:
 
 
 func load_main_menu() -> void:
-    scene_tree.change_scene("res://ui/MainMenu.tscn")
+    var _success = scene_tree.change_scene("res://ui/MainMenu.tscn")
 
 
 func load_next_level() -> void:
     level += 1
     if level <= total_levels:
-        scene_tree.change_scene("res://levels/Level{level}.tscn".format({"level": level}))
+        var _success = scene_tree.change_scene("res://levels/Level{level}.tscn".format({"level": level}))
 
 
 func retry() -> void:
     reset()
     scene_tree.paused = false
-    scene_tree.change_scene("res://levels/Level{level}.tscn".format({"level": level}))
+    var _success = scene_tree.change_scene("res://levels/Level{level}.tscn".format({"level": level}))

@@ -1,8 +1,8 @@
-extends KinematicBody2D
-class_name Block
+extends Area2D
+class_name BlockPass
 
 
-export var score := 100
+export var score := 50
 export(PackedScene) var powerup
 
 
@@ -19,9 +19,8 @@ func _ready() -> void:
     GameManager.register_block()
 
 
-func _physics_process(_delta: float) -> void:
-    var collision = move_and_collide(Vector2.ZERO)
-    if collision:
+func _on_body_entered(_body: Node) -> void:
+    if not _should_destroy:
         _on_collision()
 
 

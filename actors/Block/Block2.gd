@@ -7,6 +7,7 @@ var cracked_sprite = preload("res://actors/Block/Block2Cracked.png")
 
 
 func _on_collision() -> void:
+    _play_collision_fx()
     if not cracked:
         sprite.texture = cracked_sprite
         cracked = true

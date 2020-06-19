@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://actors/Block/Block2.gd"
 }, {
+"base": "Area2D",
+"class": "BlockPass",
+"language": "GDScript",
+"path": "res://actors/Block/BlockPass.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Powerup",
 "language": "GDScript",
@@ -33,6 +38,7 @@ _global_script_class_icons={
 "Ball": "",
 "Block": "",
 "Block2": "",
+"BlockPass": "",
 "Powerup": ""
 }
 
