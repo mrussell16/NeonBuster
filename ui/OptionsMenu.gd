@@ -1,7 +1,6 @@
 extends Control
 
 
-onready var play_button: Node = $Menu/MainMenuButton
 onready var sample_sfx: AudioStreamPlayer = $Menu/EffectsVolume/SampleSFX
 onready var master_slider: Slider = $Menu/MasterVolume/Slider
 onready var music_slider: Slider = $Menu/MusicVolume/Slider
