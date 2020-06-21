@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://ui/text/NeonBuster.png" type="Texture" id=1]
 [ext_resource path="res://ui/buttons/OptionsButton/OptionsButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/MainMenu.gd" type="Script" id=3]
 [ext_resource path="res://ui/buttons/PlayButton/PlayButton.tscn" type="PackedScene" id=4]
-[ext_resource path="res://ui/buttons/QuitButton/QuitButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ui/buttons/ControlsButton/ControlsButton.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Theme" id=1]
@@ -83,9 +82,3 @@ margin_left = 128.0
 margin_top = 304.0
 margin_right = 384.0
 margin_bottom = 368.0
-
-[node name="QuitButton" parent="Menu" instance=ExtResource( 5 )]
-margin_left = 128.0
-margin_top = 384.0
-margin_right = 384.0
-margin_bottom = 448.0
