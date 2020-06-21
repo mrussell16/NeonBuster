@@ -48,6 +48,7 @@ shape = SubResource( 1 )
 [node name="BreakSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -36.0
+bus = "Effects"
 
 [node name="Particles" type="Particles2D" parent="."]
 emitting = false

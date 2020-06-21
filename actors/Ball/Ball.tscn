@@ -21,3 +21,4 @@ shape = SubResource( 1 )
 [node name="BounceSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -27.0
+bus = "Effects"

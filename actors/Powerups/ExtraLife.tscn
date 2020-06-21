@@ -21,4 +21,5 @@ shape = SubResource( 1 )
 [node name="CollectSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -12.0
+bus = "Effects"
 [connection signal="finished" from="CollectSFX" to="." method="_on_CollectSFX_finished"]

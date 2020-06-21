@@ -32,6 +32,7 @@ onready var pause_score_label: Label = $PauseOverlay/Menu/Score
 onready var pause_lives_label: Label = $PauseOverlay/Menu/Lives
 onready var retry_button: Node = $PauseOverlay/Menu/RetryButton
 onready var continue_button: Node = $PauseOverlay/Menu/ContinueButton
+onready var main_menu_button: Node = $PauseOverlay/Menu/MainMenuButton
 
 
 func _ready() -> void:
@@ -61,12 +62,15 @@ func set_paused(value: bool, state: int = HUDState.STATE_PAUSED) -> void:
 
     match state:
         HUDState.STATE_WIN:
+            main_menu_button.grab_focus()
             game_end = true
             pause_title.texture = you_win_text
         HUDState.STATE_LOSE:
+            retry_button.grab_focus()
             game_end = true
             pause_title.texture = game_over_text
         _:
+            continue_button.grab_focus()
             game_end = false
             pause_title.texture = paused_text
 
