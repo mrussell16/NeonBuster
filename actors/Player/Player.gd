@@ -84,16 +84,23 @@ func _triple_balls() -> void:
     var balls_to_clone = len(balls)
     for index in range(balls_to_clone):
         var ball = balls[index]
-        _create_ball(ball.global_position, Vector2(ball.velocity.x * 2, ball.velocity.y), false)
-        _create_ball(ball.global_position, Vector2(ball.velocity.x, ball.velocity.y * 2), false)
+        var left_velocity := Vector2(ball.velocity.x * 2, ball.velocity.y)
+        var right_velocity := Vector2(ball.velocity.x, ball.velocity.y * 2)
+        if ball.velocity.x == 0 and ball.velocity.y == 0:
+            left_velocity = Vector2(-1, -1)
+            right_velocity = Vector2(1, -1)
+
+        _create_ball(ball.global_position, left_velocity, false, true, false)
+        _create_ball(ball.global_position, right_velocity, false, false, true)
 
 
-func _create_ball(position: Vector2, velocity: Vector2 = Vector2.ZERO, on_paddle: bool = true) -> void:
+func _create_ball(position: Vector2, velocity: Vector2 = Vector2.ZERO, on_paddle: bool = true, tweak_left: bool = false, tweak_right: bool = false) -> void:
     var new_ball = ball_scene.instance()
     add_child(new_ball)
     new_ball.global_position = position
     new_ball.set_params(ball_speed, paddle_width, spin_distance)
     var _connected = new_ball.connect("killed_by_killbox", self, "_on_Ball_killed_by_killbox")
     if not on_paddle:
-        new_ball.start_from_paddle(paddle.global_position)
+        new_ball.velocity = velocity.normalized() * ball_speed
+        new_ball.on_paddle = false
     balls.append(new_ball)
